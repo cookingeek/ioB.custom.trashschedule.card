@@ -11,7 +11,6 @@ Die `TrashSchedule`-Karte ist eine benutzerdefinierte Karte für ioBroker, die d
 
 Die `TrashSchedule`-Karte kann über die Konfigurationsoptionen angepasst werden. Hier sind die möglichen Optionen:
 
-- `title`: Der Titel der Karte.
 - `daysleft`: Die ID des Sensors, der die verbleibenden Tage bis zur nächsten Abholung anzeigt.
 - `date`: Die ID des Sensors, der das Datum des nächsten Abholtermins anzeigt.
 - `trashtype`: Der Typ des Mülls (z.B. Restmüll, Papier).
