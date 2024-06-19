@@ -23,12 +23,9 @@ Die `TrashSchedule`-Karte kann über die Konfigurationsoptionen angepasst werden
 ### Beispielkonfiguration
 
 ```yaml
-type: 'custom:trashschedule-card'
-title: 'Müllabfuhr'
-daysleft: 'sensor.daysleft'
-date: 'sensor.next_pickup_date'
-trashtype: 'Restmüll'
-trashcolor: 'sensor.trash_color'
-locale: 'de-DE'
-daySingular: 'Tag'
-dayPlural: 'Tagen'
+type: custom:trashschedule-card
+locale: de-DE
+trashtype: Altpapier
+trashcolor: sensor.altpapier_color
+daysleft: sensor.altpapier_daysLeft
+date: sensor.altpapier_nextDate
