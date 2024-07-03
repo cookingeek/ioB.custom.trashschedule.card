@@ -71,11 +71,13 @@ class TrashSchedule extends HTMLElement {
                 justify-content: space-around;
                 align-items: flex-start;
                 text-align: -webkit-center;
+                text-align: -moz-center;
             }
             .trashcard {
                 padding: 5px 0;
                 margin: auto;
                 text-align: -webkit-center;
+                text-align: -moz-center;
             }
             .trashbin {
                 width: 50px;
@@ -84,9 +86,11 @@ class TrashSchedule extends HTMLElement {
                 mask-size: auto 50px;
                 mask-repeat: no-repeat;
                 text-align: -webkit-center;
+                text-align: -moz-center;
             }
             .title {
                 text-align: -webkit-center;
+                text-align: -moz-center;
                 padding: 5px 0;
                 font-size: 16px;
             }
