@@ -32,7 +32,7 @@ class TrashSchedule extends HTMLElement {
         const eventDay = event.toLocaleDateString(locale, { weekday: 'long', timeZone: isSafari ? "Etc/UTC" : undefined });
 
         // Configure the day string based on the number of days left
-        const dayString = daysLeftState === '1' ? config.daySingular || 'Tag' : config.dayPlural || 'Tagen';
+        const dayString = config.dayPlural || 'Tagen';
 
         const text = daysLeftState === '1' ?  config.textHeute || "Heute rausstellen" : eventDay + " in " + daysLeftState + " " + dayString;
         // Build the card HTML content
