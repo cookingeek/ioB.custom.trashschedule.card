@@ -34,12 +34,13 @@ class TrashSchedule extends HTMLElement {
         // Configure the day string based on the number of days left
         const dayString = daysLeftState === '1' ? config.daySingular || 'Tag' : config.dayPlural || 'Tagen';
 
+        const text = daysLeftState === '1' ?  config.textHeute || "Heute rausstellen" : eventDay + " in " + daysLeftState + " " + dayString;
         // Build the card HTML content
         const card = `
             <div class="trashcard">
                 <div class="title" id="title">${trashtype}</div>
                 <div class="trashbin" id="trashbin" style="background-color:${trashcolorState}"></div>
-                <div class="days" id="days">${eventDay} in ${daysLeftState} ${dayString}</div>
+                <div class="days" id="days">${text}</div>
             </div>
         `;
 
