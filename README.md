@@ -16,8 +16,8 @@ Die `TrashSchedule`-Karte kann über die Konfigurationsoptionen angepasst werden
 - `trashtype`: Der Typ des Mülls (z.B. Restmüll, Papier).
 - `trashcolor`: Die ID des Sensors, der die Farbe des Mülleimers anzeigt.
 - `locale`: Die Sprach- und Regionseinstellungen für die Datumsanzeige.
-- `daySingular`: (Optional) Der Text für einen verbleibenden Tag.
-- `dayPlural`: (Optional) Der Text für mehrere verbleibende Tage.
+∂- `dayPlural`: (Optional) Der Text für mehrere verbleibende Tage.
+- `textHeute`: (Optional) Der Text für einen verbleibenden Tag.
 
 ### Beispielkonfiguration
 

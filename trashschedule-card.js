@@ -5,6 +5,7 @@ class TrashSchedule extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
+
     }
 
     /* This is called every time the sensor is updated */
@@ -22,38 +23,35 @@ class TrashSchedule extends HTMLElement {
         const trashcolor = hass.states[trashcolorId];
 
         const daysLeftState = daysleft.state;
-        const trashcolorState = trashcolor.state;
+        const trashcolorState = trashcolor.state
+        const timezone = config.timezone;
 
-        // Check if the browser is Safari
-        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
+      
         // Parse the event date
         const event = new Date(parseInt(date.state));
-        const eventDay = event.toLocaleDateString(locale, { weekday: 'long', timeZone: isSafari ? "Etc/UTC" : undefined });
+        const eventDay = event.toLocaleDateString(locale, { weekday: 'long', timeZone: timezone || Intl.DateTimeFormat().resolvedOptions().timeZone});
 
         // Configure the day string based on the number of days left
         const dayString = config.dayPlural || 'Tagen';
 
-        const text = daysLeftState === '1' ?  config.textHeute || "Heute rausstellen" : eventDay + " in " + daysLeftState + " " + dayString;
+        const text = daysLeftState === '1' ? config.text1 || "Heute rausstellen" : daysLeftState === '0' ? config.text2|| "Heute wird abgeholt" : eventDay + " in " + daysLeftState + " " + dayString;
         // Build the card HTML content
         const card = `
-            <div class="trashcard">
+            <div class="trashcard" id="${trashtype}">
                 <div class="title" id="title">${trashtype}</div>
                 <div class="trashbin" id="trashbin" style="background-color:${trashcolorState}"></div>
                 <div class="days" id="days">${text}</div>
             </div>
         `;
 
+
         // Update the card content in the shadow DOM
         this.shadowRoot.getElementById('container').innerHTML = card;
+
     }
 
     /* This is called only when the config is updated */
     setConfig(config) {
-        // TODO: Add some more error checking.
-        // if (!config.entity) {
-        //     throw new Error('You must define an entity')
-        // }
 
         const root = this.shadowRoot;
         if (root.lastChild) root.removeChild(root.lastChild);
